@@ -101,23 +101,11 @@
 <!-- 본문 -->
 <main>
     <div class="container py-5">
-
-<?php
-    $cmd = $_GET['cmd'] ?? '';
-
-    if ($cmd == 'non') {
-        include 'non.php';
-    } else {
-?>
         <div class="text-center">
             <h1 class="mb-3">충남대학교 한문학과</h1>
             <h2 class="mb-3">AI와 문화콘텐츠 실습</h2>
             <p class="fs-5">홈페이지 만들기 첫화면입니다.</p>
         </div>
-<?php
-    }
-?>
-
     </div>
 </main>
 
