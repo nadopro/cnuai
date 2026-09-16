@@ -61,8 +61,8 @@
                     </a>
                     <ul class="dropdown-menu">
                         <li><a class="dropdown-item" href="index.php?cmd=non">논어</a></li>
-                        <li><a class="dropdown-item" href="#">맹자</a></li>
-                        <li><a class="dropdown-item" href="#">메뉴1-3</a></li>
+                        <li><a class="dropdown-item" href="#">RGB</a></li>
+                        <li><a class="dropdown-item" href="#">BS 색상</a></li>
                     </ul>
                 </li>
 
