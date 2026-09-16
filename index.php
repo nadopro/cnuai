@@ -34,7 +34,7 @@
 <!-- 상단 Navbar -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container">
-        <a class="navbar-brand" href="#">충남대학교</a>
+        <a class="navbar-brand" href="index.php">충남대학교</a>
 
         <button class="navbar-toggler" type="button"
                 data-bs-toggle="collapse"
@@ -49,7 +49,7 @@
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
 
                 <li class="nav-item">
-                    <a class="nav-link active" href="#">홈</a>
+                    <a class="nav-link active" href="index.php">홈</a>
                 </li>
 
                 <li class="nav-item dropdown">
