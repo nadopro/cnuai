@@ -8,7 +8,7 @@
     <!-- Bootstrap 5 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/d3@7.9.0/dist/d3.min.js"></script>
-    
+
     <style>
         html, body {
             height: 100%;
@@ -64,6 +64,7 @@
                         <li><a class="dropdown-item" href="index.php?cmd=non">논어</a></li>
                         <li><a class="dropdown-item" href="index.php?cmd=rgb">RGB</a></li>
                         <li><a class="dropdown-item" href="index.php?cmd=bscolor">BS 색상</a></li>
+                        <li><a class="dropdown-item" href="index.php?cmd=network">인물관계 시각화</a></li>
                     </ul>
                 </li>
 
