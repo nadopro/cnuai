@@ -79,3 +79,17 @@ cmd=non이라고 되어 있으면,
 non.php 파일을 몸체에 포함시키고 싶어(include)
 모든 메뉴에는 cmd값으로 화면에 배치되는 값을 결정할거야.
 만약에 cmd값이 없으면 현재처럼 현재의 텍스트를 출력하도록 수정해 줘.
+
+rgb.php 파일을 만들고 싶어.
+현재 index.php파일에서 rgb.php를 include할거야.
+index.php는 
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+이렇게 부트스트랩5가 설정되어 있어.
+
+모든 rgb 색상을 배경으로 표시하고 싶어.
+그런데 너무 많으니까, 끝이 0, 8인 값만 대상으로 하고 싶어.
+예를 들어. 
+#000000, #000008, #000010, #000018, .... #FFFFFF 까지
+표 형태로 만들고,
+<td>#000000</td><td>배경색 #000000</td>
+이런 형태로 표시하는데, 한 라인에 3가지 색상만 보여줘.
