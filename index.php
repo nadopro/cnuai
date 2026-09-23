@@ -62,7 +62,7 @@
                     <ul class="dropdown-menu">
                         <li><a class="dropdown-item" href="index.php?cmd=non">논어</a></li>
                         <li><a class="dropdown-item" href="index.php?cmd=rgb">RGB</a></li>
-                        <li><a class="dropdown-item" href="#">BS 색상</a></li>
+                        <li><a class="dropdown-item" href="index.php?cmd=bscolor">BS 색상</a></li>
                     </ul>
                 </li>
 
