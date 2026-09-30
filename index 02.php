@@ -1,47 +1,3 @@
-<?php
-$sessionPath = __DIR__ . '/sess';
-
-if (!is_dir($sessionPath)) {
-    mkdir($sessionPath, 0777, true);
-}
-
-session_save_path($sessionPath);
-session_start();
-
-$loginError = '';
-
-if (isset($_POST['action']) && $_POST['action'] === 'logout') {
-    $_SESSION = [];
-    session_destroy();
-
-    header('Location: index.php');
-    exit;
-}
-
-if (isset($_POST['action']) && $_POST['action'] === 'login') {
-    $userId = trim($_POST['user_id'] ?? '');
-    $userPw = $_POST['user_pw'] ?? '';
-
-    if ($userId === 'test' && $userPw === '1111') {
-        $_SESSION['user_id'] = 'test';
-        $_SESSION['user_name'] = '테스트';
-
-        header('Location: index.php');
-        exit;
-    }
-
-    if ($userId === 'admin' && $userPw === '1111') {
-        $_SESSION['user_id'] = 'admin';
-        $_SESSION['user_name'] = '관리자';
-
-        header('Location: index.php');
-        exit;
-    }
-
-    $loginError = '아이디 또는 비밀번호가 올바르지 않습니다.';
-}
-?>
-
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -75,63 +31,6 @@ if (isset($_POST['action']) && $_POST['action'] === 'login') {
 </head>
 
 <body>
-
-<!-- 로그인 영역 -->
-<div class="bg-light border-bottom py-2">
-    <div class="container">
-        <?php if (isset($_SESSION['user_name'])) { ?>
-
-            <div class="d-flex justify-content-end align-items-center gap-2">
-                <span>
-                    <strong><?php echo htmlspecialchars($_SESSION['user_name'], ENT_QUOTES, 'UTF-8'); ?></strong> 님
-                </span>
-
-                <form method="post" action="index.php" class="m-0">
-                    <input type="hidden" name="action" value="logout">
-                    <button type="submit" class="btn btn-sm btn-outline-secondary">
-                        로그아웃
-                    </button>
-                </form>
-            </div>
-
-        <?php } else { ?>
-
-            <form method="post" action="index.php"
-                  class="d-flex justify-content-end align-items-center flex-wrap gap-2">
-
-                <input type="hidden" name="action" value="login">
-
-                <label for="user_id" class="form-label mb-0">ID</label>
-                <input type="text"
-                       class="form-control form-control-sm"
-                       id="user_id"
-                       name="user_id"
-                       style="width:140px;"
-                       required>
-
-                <label for="user_pw" class="form-label mb-0">PW</label>
-                <input type="password"
-                       class="form-control form-control-sm"
-                       id="user_pw"
-                       name="user_pw"
-                       style="width:140px;"
-                       required>
-
-                <button type="submit" class="btn btn-sm btn-primary">
-                    로그인
-                </button>
-            </form>
-
-            <?php if ($loginError !== '') { ?>
-                <div class="text-danger text-end small mt-1">
-                    <?php echo htmlspecialchars($loginError, ENT_QUOTES, 'UTF-8'); ?>
-                </div>
-            <?php } ?>
-
-        <?php } ?>
-    </div>
-</div>
-
 
 <!-- 상단 Navbar -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -209,10 +108,8 @@ if (isset($_POST['action']) && $_POST['action'] === 'login') {
 <?php
     $cmd = $_GET['cmd'] ?? '';
 
-    $allowedPages = ['non', 'rgb', 'bscolor', 'network', 'input'];
-
-    if ($cmd && in_array($cmd, $allowedPages, true)) {
-        include __DIR__ . '/' . $cmd . '.php';
+    if ($cmd) {
+        include("$cmd.php");
     } else {
 ?>
         <div class="text-center">
