@@ -65,6 +65,7 @@
                         <li><a class="dropdown-item" href="index.php?cmd=rgb">RGB</a></li>
                         <li><a class="dropdown-item" href="index.php?cmd=bscolor">BS 색상</a></li>
                         <li><a class="dropdown-item" href="index.php?cmd=network">인물관계 시각화</a></li>
+                        <li><a class="dropdown-item" href="index.php?cmd=input">입력</a></li>
                     </ul>
                 </li>
 
