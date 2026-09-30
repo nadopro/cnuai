@@ -167,6 +167,7 @@ if (isset($_POST['action']) && $_POST['action'] === 'login') {
                         <li><a class="dropdown-item" href="index.php?cmd=bscolor">BS 색상</a></li>
                         <li><a class="dropdown-item" href="index.php?cmd=network">인물관계 시각화</a></li>
                         <li><a class="dropdown-item" href="index.php?cmd=input">입력</a></li>
+                        <li><a class="dropdown-item" href="index.php?cmd=autonet">자동인물관계</a></li>
                     </ul>
                 </li>
 
@@ -209,7 +210,7 @@ if (isset($_POST['action']) && $_POST['action'] === 'login') {
 <?php
     $cmd = $_GET['cmd'] ?? '';
 
-    $allowedPages = ['non', 'rgb', 'bscolor', 'network', 'input'];
+    $allowedPages = ['non', 'autonet', 'rgb', 'bscolor', 'network', 'input'];
 
     if ($cmd && in_array($cmd, $allowedPages, true)) {
         include __DIR__ . '/' . $cmd . '.php';

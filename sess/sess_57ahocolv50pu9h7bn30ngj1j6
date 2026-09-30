@@ -1,0 +1,1 @@
+autonet_data|a:2:{s:7:"persons";a:4:{i:0;s:9:"이순신";i:1;s:6:"이이";i:2;s:9:"홍길동";i:3;s:9:"홍대감";}s:9:"relations";a:2:{i:0;a:3:{s:6:"source";s:6:"이이";s:6:"target";s:9:"홍길동";s:8:"relation";s:6:"친구";}i:1;a:3:{s:6:"source";s:9:"홍길동";s:6:"target";s:9:"홍대감";s:8:"relation";s:6:"부자";}}}autonet_initialized|b:1;

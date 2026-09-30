@@ -44,7 +44,7 @@
 
             <div class="form-check form-check-inline">
                 <input class="form-check-input" type="radio" name="gender"
-                       id="gender_female" value="여성">
+                       id="gender_female" value="여성" checked>
                 <label class="form-check-label" for="gender_female">여성</label>
             </div>
         </div>
@@ -74,7 +74,7 @@
         <div class="mb-3">
             <label for="grade" class="form-label">학년 선택 (number)</label>
             <input type="number" class="form-control" id="grade" name="grade"
-                   min="1" max="4" value="1">
+                   min="1" max="14" step="3" value="1">
         </div>
 
         <div class="mb-3">
