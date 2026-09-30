@@ -307,7 +307,7 @@ $personText = implode(',', $persons);
         </form>
 
         <button type="button" class="btn btn-success"
-                onclick="window.open('autovisual.php','autovisual','width=1200,height=800,scrollbars=yes,resizable=yes');">
+                onclick="window.open('autovisual.php','autovisual','width=2000,height=1000,scrollbars=yes,resizable=yes');">
             네트워크 시각화
         </button>
     </div>

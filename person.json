@@ -1,6 +1,12 @@
 {
     "nodes": [
         {
+            "id": "이도"
+        },
+        {
+            "id": "이방원"
+        },
+        {
             "id": "이순신"
         },
         {
@@ -23,6 +29,16 @@
             "source": "홍길동",
             "target": "홍대감",
             "relation": "부자"
+        },
+        {
+            "source": "이방원",
+            "target": "이도",
+            "relation": "부자"
+        },
+        {
+            "source": "이도",
+            "target": "이이",
+            "relation": "사제"
         }
     ]
 }
