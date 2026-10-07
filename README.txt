@@ -7,6 +7,9 @@
 
     https://github.com/nadopro/cnuai
 
+3. DB 접속
+
+    localhost/phpmyadmin
 
 Q1:
 HTML문서를 하나 만들고 싶어.
