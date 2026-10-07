@@ -408,3 +408,58 @@ ALTER TABLE <table_name> CONVERT TO CHARACTER SET utf8mb4 COLLATE utf8mb4_unicod
 
 ALTER DATABASE cnu CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci;
 ALTER TABLE std_table CONVERT TO CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+
+
+이 테이블에서 김씨만 찾고 싶어.
+만약에 여러개의 데이터라면 이름의 가나다순으로 정렬하고 싶어.
+
+
+이번에는 회원가입과 로그인을 위한 members라는 테이블을 만들고 싶어.
+idx, id, name, pass, level
+이 정보가 필요하고, 비밀번호는 암호화하지 않고,
+공부하는 용도록 텍스트로 저장할거야.
+이때 아이디는 중복될 수 없어.
+idx는 숫자로 자동 증가하는 키 값으로 쓰고 싶어.
+level은 회원 등급인데
+1 : 일반회원
+2 : 우수회원
+...(중간 예비영역으로 생략)
+9 : 관리자
+이런 용도로 사용하고 싶어.
+
+
+CREATE TABLE members (
+    idx INT NOT NULL AUTO_INCREMENT,
+    id VARCHAR(50) NOT NULL,
+    name VARCHAR(50) NOT NULL,
+    pass VARCHAR(100) NOT NULL,
+    level TINYINT NOT NULL DEFAULT 1,
+
+    PRIMARY KEY (idx),
+    UNIQUE KEY (id)
+);
+
+테이블은 잘 만들어졌어.
+데이터를 입력할 건데,
+id: test, name : 테스트, pass : 1111, level : 1
+id: admin, name : 관리자, pass : 1111, level : 9
+이 외에 데이터 10개를 추가해 줘.
+비밀번호는 모두 1111, level= 1이야.
+
+
+
+INSERT INTO members
+(id, name, pass, level)
+VALUES
+('test', '테스트', '1111', 1),
+('admin', '관리자', '1111', 9),
+('hong', '홍길동', '1111', 1),
+('lee', '이순신', '1111', 1),
+('yi', '이이', '1111', 1),
+('saimdang', '신사임당', '1111', 1),
+('jeong', '정약용', '1111', 1),
+('heo', '허균', '1111', 1),
+('yun', '윤선도', '1111', 1),
+('park', '박지원', '1111', 1),
+('kim', '김홍도', '1111', 1),
+('seo', '서경덕', '1111', 1);
