@@ -25,20 +25,29 @@ if (isset($_POST['action']) && $_POST['action'] === 'login') {
     $userId = trim($_POST['user_id'] ?? '');
     $userPw = $_POST['user_pw'] ?? '';
 
-    if ($userId === 'test' && $userPw === '1111') {
-        $_SESSION['user_id'] = 'test';
-        $_SESSION['user_name'] = '테스트';
+    $sql = "SELECT id, name, pass, level FROM members WHERE id = ? LIMIT 1";
+    $stmt = $conn->prepare($sql);
 
-        header('Location: index.php');
-        exit;
-    }
+    if ($stmt) {
+        $stmt->bind_param("s", $userId);
+        $stmt->execute();
 
-    if ($userId === 'admin' && $userPw === '1111') {
-        $_SESSION['user_id'] = 'admin';
-        $_SESSION['user_name'] = '관리자';
+        $result = $stmt->get_result();
 
-        header('Location: index.php');
-        exit;
+        if ($member = $result->fetch_assoc()) {
+            if ($member['pass'] === $userPw) {
+                $_SESSION['user_id'] = $member['id'];
+                $_SESSION['user_name'] = $member['name'];
+                $_SESSION['level'] = (int)$member['level'];
+
+                $stmt->close();
+
+                header('Location: index.php');
+                exit;
+            }
+        }
+
+        $stmt->close();
     }
 
     $loginError = '아이디 또는 비밀번호가 올바르지 않습니다.';
@@ -201,6 +210,22 @@ if (isset($_POST['action']) && $_POST['action'] === 'login') {
                     </ul>
                 </li>
 
+
+                <?php if (isset($_SESSION['level']) && (int)$_SESSION['level'] === 9) { ?>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#"
+                       role="button"
+                       data-bs-toggle="dropdown"
+                       aria-expanded="false">
+                        관리자
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="index.php?cmd=member_admin">회원관리</a></li>
+                        <li><a class="dropdown-item" href="index.php?cmd=board_admin">게시판관리</a></li>
+                    </ul>
+                </li>
+                <?php } ?>
+
             </ul>
         </div>
     </div>
@@ -213,7 +238,7 @@ if (isset($_POST['action']) && $_POST['action'] === 'login') {
 <?php
     $cmd = $_GET['cmd'] ?? '';
 
-    $allowedPages = ['non', 'autonet', 'rgb', 'bscolor', 'network', 'input'];
+    $allowedPages = ['non', 'autonet', 'rgb', 'bscolor', 'network', 'input', 'member_admin', 'board_admin'];
 
     if ($cmd && in_array($cmd, $allowedPages, true)) {
         include __DIR__ . '/' . $cmd . '.php';
