@@ -463,3 +463,26 @@ VALUES
 ('park', '박지원', '1111', 1),
 ('kim', '김홍도', '1111', 1),
 ('seo', '서경덕', '1111', 1);
+
+
+index.php파일의 맨 앞에 다음과 같이 추가했어.
+
+<?php
+$sessionPath = __DIR__ . '/sess';
+
+include "db.php";
+
+즉 모든 파일이 db.php파일을 포함하도록 구성되어 있어.
+db.php 파일을 만들거야.
+
+connectDB() 함수를 하나 만들고,
+이 함수는 
+DB name : cnu
+db user : cnu
+db pass : 1111
+이 정보를 이용해 접속을 시도하고,
+접속 정보인 $conn를 반환해.
+
+closeDB($conn) 함수는 접속을 끊는 기능이야.
+이 두 함수를 포함하는 db.php 파일을 만들어줘.
+

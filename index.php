@@ -1,6 +1,9 @@
 <?php
 $sessionPath = __DIR__ . '/sess';
 
+include "db.php";
+$conn = connectDB(); 
+
 if (!is_dir($sessionPath)) {
     mkdir($sessionPath, 0777, true);
 }
