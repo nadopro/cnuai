@@ -496,3 +496,10 @@ members 테이블의 id, pass를 비교하는 코드로 변경해 줘.
 또 관리자로 로그인 한 경우, 메뉴의 마지막에
 관리자 메뉴를 하나 추가해 줘.
 관리자 메뉴에는 "회원관리", "게시판관리"를 추가해 줘.
+
+ALTER USER 'cnu'@'localhost'
+IDENTIFIED BY '1111';
+
+GRANT ALL PRIVILEGES ON cnu.* TO 'cnu'@'localhost';
+
+FLUSH PRIVILEGES;
