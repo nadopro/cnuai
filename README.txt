@@ -400,3 +400,11 @@ VALUES
 질의(Query)를 만들어 줘.
 
 
+한글깨질 때,
+
+ALTER DATABASE <database_name> CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci;
+ALTER TABLE <table_name> CONVERT TO CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+
+
+ALTER DATABASE cnu CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci;
+ALTER TABLE std_table CONVERT TO CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
