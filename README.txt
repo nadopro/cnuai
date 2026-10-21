@@ -526,9 +526,11 @@ CREATE TABLE board (
     writer_id VARCHAR(50) NOT NULL,
     content TEXT NOT NULL,
     attachment VARCHAR(255) DEFAULT NULL,
+    hit integer default '0',
 
     PRIMARY KEY (idx),
     INDEX idx_bid (bid),
     INDEX idx_writer_id (writer_id),
     INDEX idx_created_at (created_at)
 );
+
