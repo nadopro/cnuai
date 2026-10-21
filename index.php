@@ -1,4 +1,5 @@
 <?php
+ob_start();
 $sessionPath = __DIR__ . '/sess';
 
 include "db.php";
@@ -242,7 +243,7 @@ if (isset($_POST['action']) && $_POST['action'] === 'login') {
 <?php
     $cmd = $_GET['cmd'] ?? '';
 
-    $allowedPages = ['non', 'autonet', 'rgb', 'bscolor', 'network', 'input', 'member_admin', 'board_admin'];
+    $allowedPages = ['board', 'non', 'autonet', 'rgb', 'bscolor', 'network', 'input', 'member_admin', 'board_admin'];
 
     if ($cmd && in_array($cmd, $allowedPages, true)) {
         include __DIR__ . '/' . $cmd . '.php';
