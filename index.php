@@ -188,10 +188,14 @@ if (isset($_POST['action']) && $_POST['action'] === 'login') {
                        role="button"
                        data-bs-toggle="dropdown"
                        aria-expanded="false">
-                        메뉴2
+                        게시판
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="#">메뉴2-1</a></li>
+                        <li><a class="dropdown-item" href="index.php?cmd=board&bid=1">공지사항</a></li>
+                        <li><a class="dropdown-item" href="index.php?cmd=board&bid=2">자유게시판</a></li>
+                        <li><a class="dropdown-item" href="index.php?cmd=board&bid=3">학습게시판</a></li>
+                        
+                        
                         <li><a class="dropdown-item" href="#">메뉴2-2</a></li>
                     </ul>
                 </li>

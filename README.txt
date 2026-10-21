@@ -503,3 +503,32 @@ IDENTIFIED BY '1111';
 GRANT ALL PRIVILEGES ON cnu.* TO 'cnu'@'localhost';
 
 FLUSH PRIVILEGES;
+
+
+게시판을 위한 데이터베이스 스키마를 하나 만들고 싶어.
+table name : board
+
+idx : integer auto increment, primary key
+bid : 게시판의 아이디, 1: 공지사항, 2: 자유게시판 3:학습게시판
+제목, 공지여부, 작성시간, ip, 작성자id, 내용, 첨부파일
+
+이 정도가 필요해. 
+최적의 스키마를 제시해 줘.
+
+
+CREATE TABLE board (
+    idx INT NOT NULL AUTO_INCREMENT,
+    bid TINYINT NOT NULL,
+    title VARCHAR(255) NOT NULL,
+    is_notice TINYINT(1) NOT NULL DEFAULT 0,
+    created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    ip VARCHAR(45) DEFAULT NULL,
+    writer_id VARCHAR(50) NOT NULL,
+    content TEXT NOT NULL,
+    attachment VARCHAR(255) DEFAULT NULL,
+
+    PRIMARY KEY (idx),
+    INDEX idx_bid (bid),
+    INDEX idx_writer_id (writer_id),
+    INDEX idx_created_at (created_at)
+);
