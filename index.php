@@ -230,6 +230,7 @@ if (isset($_POST['action']) && $_POST['action'] === 'login') {
                         <li><a class="dropdown-item" href="index.php?cmd=manPerson">인물관리 2조</a></li>
                         <li><a class="dropdown-item" href="index.php?cmd=manType">유형관리 4조</a></li>
                         <li><a class="dropdown-item" href="index.php?cmd=manWord">어휘관리 3조</a></li>
+                        <li><a class="dropdown-item" href="index.php?cmd=manDance">춤관리 1조</a></li>
                     </ul>
                 </li>
                 <?php } ?>
@@ -246,7 +247,7 @@ if (isset($_POST['action']) && $_POST['action'] === 'login') {
 <?php
     $cmd = $_GET['cmd'] ?? '';
 
-    $allowedPages = ['board', 'manWord', 'manType', 'manPerson', 'non', 'autonet', 'rgb', 'bscolor', 'network', 'input', 'member_admin', 'board_admin'];
+    $allowedPages = ['board', 'manDance','manWord', 'manType', 'manPerson', 'non', 'autonet', 'rgb', 'bscolor', 'network', 'input', 'member_admin', 'board_admin'];
 
     if ($cmd && in_array($cmd, $allowedPages, true)) {
         include __DIR__ . '/' . $cmd . '.php';

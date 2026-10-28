@@ -734,3 +734,69 @@ idx, words, kwords, useflag, 비고 만 배치해줘.
 비고에는 수정, 삭제 버튼을 만들어주고
 수정을 할 때는 상단의 입력부분을 활용해줘.
 삭제할 때는 "정말 삭제하시겠습니까?"라고 물어줘.
+
+
+
+
+1조. 여러개의 사진 등록하기
+우선 dance 테이블을 만들고 싶어.
+idx, title, photo1~10개, useflag
+테이블 스키마를 만들어줘.
+
+
+CREATE TABLE dance (
+    idx INT AUTO_INCREMENT PRIMARY KEY,
+    title VARCHAR(200) NOT NULL,
+    org    text default null,
+    kor     text default null, 
+    photo1 VARCHAR(255) DEFAULT NULL,
+    photo2 VARCHAR(255) DEFAULT NULL,
+    photo3 VARCHAR(255) DEFAULT NULL,
+    photo4 VARCHAR(255) DEFAULT NULL,
+    photo5 VARCHAR(255) DEFAULT NULL,
+    photo6 VARCHAR(255) DEFAULT NULL,
+    photo7 VARCHAR(255) DEFAULT NULL,
+    photo8 VARCHAR(255) DEFAULT NULL,
+    photo9 VARCHAR(255) DEFAULT NULL,
+    photo10 VARCHAR(255) DEFAULT NULL,
+    useflag CHAR(1) NOT NULL DEFAULT 'Y'
+) ENGINE=InnoDB
+  DEFAULT CHARSET=utf8mb4
+  COLLATE=utf8mb4_unicode_ci;
+
+
+
+manDance.php파일을 수정해서 다시 만들고 싶어.
+다음과 같이 스키마를 변경했어.
+
+CREATE TABLE dance (
+    idx INT AUTO_INCREMENT PRIMARY KEY,
+    title VARCHAR(200) NOT NULL,
+    org    text default null,
+    kor     text default null, 
+    photo1 VARCHAR(255) DEFAULT NULL,
+    photo2 VARCHAR(255) DEFAULT NULL,
+    photo3 VARCHAR(255) DEFAULT NULL,
+    photo4 VARCHAR(255) DEFAULT NULL,
+    photo5 VARCHAR(255) DEFAULT NULL,
+    photo6 VARCHAR(255) DEFAULT NULL,
+    photo7 VARCHAR(255) DEFAULT NULL,
+    photo8 VARCHAR(255) DEFAULT NULL,
+    photo9 VARCHAR(255) DEFAULT NULL,
+    photo10 VARCHAR(255) DEFAULT NULL,
+    useflag CHAR(1) NOT NULL DEFAULT 'Y'
+) ENGINE=InnoDB
+  DEFAULT CHARSET=utf8mb4
+  COLLATE=utf8mb4_unicode_ci;
+
+
+사용자 입력하는 창을 만들고 싶어.
+idx, title, org(한문 원문), kor(한글 번역), photos 형태가 있어.
+이때 사진은 10개를 Drag and Drop 하도록 해 줘.
+조금 전에 만든 dance테이블에 저장하도록 해줘.
+하단에는 목록을 표 형태로 만들어줘.
+마지막에는 수정과 삭제버튼을 만들고, 수정은 등록 화면을 이용해 줘.
+data/dance/인덱스번호 폴더에 저장해.
+삭제할 때는 "정말 삭제하시겠습니까?"라고 물어줘.
+입력하는 파일은 gif파일 이어서, 상하좌우 회전 기능을 없애도 돼
+
