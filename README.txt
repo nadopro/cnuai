@@ -623,5 +623,32 @@ members 테이블의 id, name을 보고 이름으로 출력해.
 현재 년월일시분초로 변환해서 중복되지 않도록 해 줘.
 
 
+사진이 있는 인물 관계망을 관리하고 싶어.
+이중에서 인물을 DB로 저장하려고 해.
+person 테이블을 만들어 줘.
 
 
+CREATE TABLE person (
+    person_id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(100) NOT NULL,
+    gender CHAR(1),
+    description TEXT,
+    photo VARCHAR(255),
+    created_at DATETIME DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB
+  DEFAULT CHARSET=utf8mb4
+  COLLATE=utf8mb4_unicode_ci;
+
+
+
+  manPerson.php파일을 만들어줘.
+  인물 등록을 위해 이름, 성별, 사진, 설명을 입력하고,
+  등록 버튼을 누르면 조금 전 만든 테이블에 저장하고 싶어.
+
+  하단에는 이 목록을 표형태로 표시해줘.
+  맨 오른쪽에는 수정과 삭제 버튼을 만들어줘.
+  수정을 누르면 상단에 있는 입력창을 그대로 활용해 주고,
+  삭제할 때는 "정말 삭제하시겠습니까?"라고 묻고 삭제해줘.
+  사진은 data/photo 폴더에 저장하고,
+  현재날자와 시간정보를 활용해서
+  20261028123456.jpg처럼 파일 이름을 변경해서 중복되지 않도록 해줘.
