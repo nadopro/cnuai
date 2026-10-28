@@ -652,3 +652,35 @@ CREATE TABLE person (
   사진은 data/photo 폴더에 저장하고,
   현재날자와 시간정보를 활용해서
   20261028123456.jpg처럼 파일 이름을 변경해서 중복되지 않도록 해줘.
+
+
+  4조.
+
+  유형을 DB테이블로 만들고 싶어.
+  테이블명은 type_table
+  idx, title, useflag, memo 정도가 있으면 돼.
+  테이블을 만들어줘.
+
+
+  CREATE TABLE type_table (
+    idx INT NOT NULL AUTO_INCREMENT,
+    title VARCHAR(100) NOT NULL,
+    useflag CHAR(1) NOT NULL DEFAULT 'Y',
+    memo TEXT DEFAULT NULL,
+    PRIMARY KEY (idx)
+)
+ENGINE=InnoDB
+DEFAULT CHARSET=utf8mb4
+COLLATE=utf8mb4_unicode_ci;
+
+
+manType.php 파일을 만들거야.
+이 메뉴는 탭메뉴로 구성할 건데,
+유형관리, 질문관리, 테스트 세개의 메뉴가 있어.
+이중 유형관리는 유형을 등록하는 탭메뉴야.
+조금 전 만든 테이블(type_table)을 등록하는 입력창을 만들어줘.
+
+하단에는 등록된 전체 유형을 표형태로 나열해 줘.
+맨 오른쪽에는 수정, 삭제 버튼을 만들어줘.
+수정버튼을 클릭하면 앞에서 등록화면을 활용해 줘.
+삭제할 때는 "정말 삭제하시겠습니까?"라고 꼭 물어줘.
