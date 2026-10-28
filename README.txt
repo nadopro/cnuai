@@ -684,3 +684,53 @@ manType.php 파일을 만들거야.
 맨 오른쪽에는 수정, 삭제 버튼을 만들어줘.
 수정버튼을 클릭하면 앞에서 등록화면을 활용해 줘.
 삭제할 때는 "정말 삭제하시겠습니까?"라고 꼭 물어줘.
+
+
+3조.
+워드관리가 필요한데, DB로 word_table을 만들어줘.
+고사성어를 등록하고, 각 한자의 음과 훈을 저장
+유사한 고사성어, 설명이 필요해.
+유사한 고사성어는 여러개가 있을 수 있지만
+쉼표단위로 구분해서 저장할거야.
+예를 들어 (지믕,관포지교,죽마고우)
+
+즉, 
+idx, words, kwords(사자성어의 한글 독음),
+sounds(음과 훈을 콤마단위로 나열할거야)
+same (유사한 사자성어 목록, 콤마단위),
+level (난이도 1~5)
+useflag (사용여부)
+
+
+CREATE TABLE word_table (
+    idx INT AUTO_INCREMENT PRIMARY KEY,
+    words VARCHAR(50) NOT NULL COMMENT '고사성어 한자',
+    kwords VARCHAR(100) NOT NULL COMMENT '고사성어 한글 독음',
+    sounds VARCHAR(255) DEFAULT NULL COMMENT '각 한자의 음과 훈(쉼표 구분)',
+    same TEXT DEFAULT NULL COMMENT '유사한 고사성어(쉼표 구분)',
+    memo TEXT DEFAULT NULL COMMENT '고사성어 뜻 및 설명',
+    level TINYINT NOT NULL DEFAULT 1 COMMENT '난이도(1~5)',
+    useflag CHAR(1) NOT NULL DEFAULT 'Y' COMMENT '사용여부(Y/N)',
+
+    CONSTRAINT chk_word_level CHECK (level BETWEEN 1 AND 5),
+    CONSTRAINT chk_word_useflag CHECK (useflag IN ('Y', 'N'))
+) ENGINE=InnoDB
+DEFAULT CHARSET=utf8mb4
+COLLATE=utf8mb4_unicode_ci
+COMMENT='고사성어 관리 테이블';
+
+
+앞에서 만든 테이블을 이용해서 관리하는 manWord.php파일을 만들거야.
+탭메뉴로 구성하는데, 
+1. 어휘관리
+2. 통계
+3. 테스트
+
+어휘관리는 앞의 테이블을 등록하고 관리하는 탭메뉴야.
+상단에는 예를 들어 "죽마고우"라는 단어가 있을 때, 이를 등록하는 등록화면이
+있어.
+하단에는 등록된 어휘(사자성어)목록을 표 형태로 보여줘.
+idx, words, kwords, useflag, 비고 만 배치해줘.
+비고에는 수정, 삭제 버튼을 만들어주고
+수정을 할 때는 상단의 입력부분을 활용해줘.
+삭제할 때는 "정말 삭제하시겠습니까?"라고 물어줘.
